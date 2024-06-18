@@ -7,3 +7,9 @@ export function register(data){
 export function login(data){
     return http().post("login", data);
 }
+export function updateProfile(data){
+    return http().post("update-profile", data);
+}
+export function updatePassword(data){
+    return http().post("update-profile", data);
+}

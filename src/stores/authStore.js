@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { updatePassword, updateProfile } from "../services/auth_service";
 
 export const useAuthStore = defineStore('authStore', {
     state: () =>{
@@ -21,6 +22,25 @@ export const useAuthStore = defineStore('authStore', {
                 return token;
             }
             return null;
+        },
+        async handelUpdateProfile (data) {
+            try {
+                const response = await updateProfile(data)
+                this.user = response.data.user;
+                return response
+            } catch (err) {
+                console.log(err)
+            }
+        },
+        async handelUpdatePassword (data) {
+            try {
+                const response = await updatePassword(data)
+                // this.user = response.data.user;
+                console.log(response)
+                return response
+            } catch (err) {
+                console.log(err)
+            }
         }
 
     },
