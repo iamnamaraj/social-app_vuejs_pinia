@@ -1,5 +1,5 @@
 <template>
-<p>Timeline</p>
+  <h1>timeline</h1>
 </template>
 
 <script>
