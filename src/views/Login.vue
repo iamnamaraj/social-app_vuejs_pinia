@@ -55,16 +55,19 @@ import { reactive, ref } from 'vue'
 import { useRouter } from "vue-router"
 import { login } from "../services/auth_service"
 import { toast } from 'vue3-toastify';
+import { useAuthStore } from '../stores/authStore'
 export default {
     setup(){
         const user = reactive({
-            email: "",
-            password: "",
+            email: "test1@gmail.com",
+            password: "password",
         });
         const errors = ref({})
         const message = ref('')
 
         const router = useRouter()
+        const authStore = useAuthStore();
+
 
         const handelLogin = async () => {
             errors.value = {}
@@ -73,13 +76,15 @@ export default {
             try {
                 const response = await login(user)
                 if(response.status === 200 ){
+                    authStore.setUser(response.data.user)
+                    authStore.setToken(response.data.access_token)
                     toast.success(response.data.message)
 
                     errors.value = {}
                     message.value = ''
 
                     setTimeout(()=>{
-                        router.push('/')
+                        router.push('/timeline')
                     },1000)
                 }
 
@@ -98,7 +103,8 @@ export default {
         }
 
 
-        return { user, errors, message, handelLogin  }
+
+        return { user, errors, message, handelLogin, authStore }
     }
 
 }
