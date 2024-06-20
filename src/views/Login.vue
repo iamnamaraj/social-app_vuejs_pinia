@@ -33,7 +33,7 @@
                 <div class="flex justify-center">
                     <button
                         type="button"
-                        class="rounded-lg text-white bg-blue-700 px-2 py-2"
+                        class="rounded-lg text-white bg-blue-700 px-2 py-2 active:bg-blue-500"
                         @click.prevent="handelLogin"
                     >
                         Login

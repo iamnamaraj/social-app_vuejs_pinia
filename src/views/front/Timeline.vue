@@ -1,10 +1,15 @@
 <template>
-  <h1>timeline</h1>
+  <!-- <div class="flex justify-center"> -->
+  <div class="flex flex-col items-center">
+    <Card v-for="i in 10 " :key="i"/>
+  </div>
 </template>
 
 <script>
-export default {
+import Card from '../../components/Card.vue'
 
+export default {
+  components: { Card },
 }
 </script>
 

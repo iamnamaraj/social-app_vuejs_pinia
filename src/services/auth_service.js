@@ -13,3 +13,6 @@ export function updateProfile(data){
 export function updatePassword(data){
     return http().post("update-profile", data);
 }
+export function logOUT(){
+    return http().get('logout');
+}
