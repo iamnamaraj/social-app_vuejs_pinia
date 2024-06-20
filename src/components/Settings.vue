@@ -139,16 +139,17 @@ export default {
        const updatePassword = async () =>{
         errors.value = {}
         try {
-        errors.value = {}
-
            const response = await authStore.handelUpdatePassword(user);
            console.log(response);
-            // toast.success(response.data.message);
+            user.current_password = ''
+            user.new_password = ''
+            user.new_password_confirmation = ''
+            toast.success(response.data.message);
+
         } catch (err) {
-            // if(err.response.data.errors ){
-            //     errors.value = err.response.data.errors
-            // }
-            console.log(err)
+            if(err.response.data.errors ){
+               errors.value = err.response.data.errors
+            }
         }
     }
 

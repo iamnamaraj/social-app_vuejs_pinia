@@ -39,7 +39,7 @@ export const useAuthStore = defineStore('authStore', {
                 console.log(response)
                 return response
             } catch (err) {
-                console.log(err)
+                throw err
             }
         }
 
