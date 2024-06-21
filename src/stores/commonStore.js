@@ -1,7 +1,9 @@
 import { defineStore } from "pinia";
 
 export const useCommonStore = defineStore('commonStore', {
-  state: () => ({
-    test: 'hello'
-  }),
+  state: () => {
+    return {
+      mediaUrl : 'http://localhost:8000/'
+    }
+  },
 });

@@ -59,7 +59,7 @@ import { useAuthStore } from '../stores/authStore'
 export default {
     setup(){
         const user = reactive({
-            email: "test1@gmail.com",
+            email: "namarajkarki@gmail.com",
             password: "password",
         });
         const errors = ref({})
