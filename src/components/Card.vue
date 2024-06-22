@@ -2,7 +2,7 @@
   <div class="flex flex-col bg-white w-[90%] min-h-64 rounded-lg px-4 py-2">
     <CardHeader :post = "post"/>
     <CardBody :post = "post" />
-    <CardFooter />
+    <CardFooter :post = "post" />
   </div>
 </template>
 
